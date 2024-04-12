@@ -27,4 +27,7 @@ urlpatterns = [
     path('enseignant', views.listeEnseignants, name='listeEnseignants'),
     path('enseignant/<int:enseignantId>', views.detailEnseignant, name='detailEnseignant'),
     path('enseignant/creer', EnseignantCreateView.as_view(), name='createEnseignants'),
+    # Salle
+    path('salle', views.listeSalles, name='listeEnseignants'),
+    path('salle/<int:salleId>', views.detailSalle, name='detailEnseignant'),
 ]

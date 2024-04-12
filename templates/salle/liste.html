@@ -1,0 +1,32 @@
+{% extends 'master.html' %}
+{% block title %}
+    Liste des salles
+{% endblock %}
+{% block content %}
+    <div class="container">
+    {% if salles %}
+        <table>
+            <thead>
+            <tr>
+                <th>Libellé</th>
+                <th>Etage</th>
+                <th>Batiment</th>
+                <th>Détail</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for salle in salles %} 
+                <tr>
+                <td>{{ salle.libelle }}</td>
+                <td>{{ salle.etage }}</td>
+                <td>{{ salle.batiment }}</td>
+                <td><a href="/salle/{{ salle.id }}">Détail</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Pas de salles</p>
+    {% endif %}
+    </div>
+{% endblock %}

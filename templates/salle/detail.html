@@ -1,0 +1,21 @@
+{% extends 'master.html' %}
+{% block title %}
+    Détail Salle
+{% endblock %}
+{% block content %}
+    <div class="container">
+        {% if salle %}
+            <div class="row">
+                <h5>Libellé : </h5> {{ salle.libelle }}
+            </div>
+            <div class="row">
+                <h5>Etage : </h5> {{ salle.etage }}
+            </div>
+            <div class="row">
+                <h5>Bâtiment : </h5> {{ salle.batiment }}
+            </div>
+        {% else %}
+            <p>Cette salle n'existe pas</p>
+        {% endif %}
+    </div>
+{% endblock %}

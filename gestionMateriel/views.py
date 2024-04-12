@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.views.generic import CreateView
 
 from gestionMateriel.form import EnseignantForm
-from gestionMateriel.models import Enseignant
+from gestionMateriel.models import Enseignant, Salle
 
 
 # Create your views here.
@@ -11,6 +11,11 @@ def accueil(request):
     return render(request, 'index.html')
 
 
+########################################################################################
+########################################################################################
+#############################       Enseignant           ###############################
+########################################################################################
+########################################################################################
 def listeEnseignants(request):
     context = {
         'enseignants': Enseignant.objects.all()
@@ -32,3 +37,22 @@ class EnseignantCreateView(CreateView):
 
     def get_success_url(self):
         return reverse("detailEnseignant", args=[self.object.pk])
+
+
+########################################################################################
+########################################################################################
+#############################          Salle             ###############################
+########################################################################################
+########################################################################################
+def listeSalles(request):
+    context = {
+        'salles': Salle.objects.all()
+    }
+    return render(request, 'salle/liste.html', context)
+
+
+def detailSalle(request, salleId):
+    context = {
+        'salle': Salle.objects.get(pk=salleId)
+    }
+    return render(request, 'salle/detail.html', context)
