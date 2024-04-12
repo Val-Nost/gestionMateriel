@@ -1,0 +1,30 @@
+{% extends 'master.html' %}
+{% block title %}
+    Détail matériel
+{% endblock %}
+{% block content %}
+    <div class="container">
+        {% if materiel %}
+            <div class="row">
+                <h5>Libellé : </h5> {{ materiel.libelle }}
+            </div>
+            <div class="row">
+                <h5>Budget : </h5> {{ materiel.budget }}
+            </div>
+            <div class="row">
+                <h5>Salle : </h5> {{ materiel.salle.libelle }}
+            </div>
+            <div class="row">
+                <h5>Acheteur : </h5> {{ materiel.acheteur }}
+            </div>
+            <div class="row">
+                <h5>Possesseur : </h5> {{ materiel.possesseur }}
+            </div>
+            <div class="row">
+                <h5>Responsable : </h5> {{ materiel.responsable }}
+            </div>
+        {% else %}
+            <p>Ce materiel n'existe pas</p>
+        {% endif %}
+    </div>
+{% endblock %}

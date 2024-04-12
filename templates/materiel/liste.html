@@ -1,0 +1,30 @@
+{% extends 'master.html' %}
+{% block title %}
+    Liste du matériel
+{% endblock %}
+{% block content %}
+    <div class="container">
+    {% if materiels %}
+        <table>
+            <thead>
+            <tr>
+                <th>Libellé</th>
+                <th>Prénom</th>
+                <th>Détail</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for materiel in materiels %} 
+                <tr>
+                <td>{{ materiel.nom }}</td>
+                <td>{{ materiel.prenom }}</td>
+                <td><a href="/materiel/{{ materiel.id }}">Détail</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Pas de materiel trouvé</p>
+    {% endif %}
+    </div>
+{% endblock %}
