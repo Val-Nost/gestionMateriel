@@ -1,0 +1,21 @@
+{% extends 'master.html' %}
+{% block title %}
+    Création d'enseignants
+{% endblock %}
+{% block content %}
+    <div class="container">
+    <form method="post">
+        {% csrf_token %}
+        
+        {{ form.as_p }}
+        <div class="boutons">
+            <button class="button radius alert left" type="cancel">
+                <a href={% url 'index' %}>Annuler</a>
+            </button>
+            <button class="button radius success right" type="submit">
+                Créer
+            </button>
+        </div>
+    </form>
+    </div>
+{% endblock %}

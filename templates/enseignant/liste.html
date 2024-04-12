@@ -1,0 +1,30 @@
+{% extends 'master.html' %}
+{% block title %}
+    Liste des enseignants
+{% endblock %}
+{% block content %}
+    <div class="container">
+    {% if enseignants %}
+        <table>
+            <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Détail</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for enseignant in enseignants %} 
+                <tr>
+                <td>{{ enseignant.nom }}</td>
+                <td>{{ enseignant.prenom }}</td>
+                <td><a href="/enseignant/{{ enseignant.id }}">Détail</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Pas d'enseignants</p>
+    {% endif %}
+    </div>
+{% endblock %}

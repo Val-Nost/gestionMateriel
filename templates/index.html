@@ -1,0 +1,23 @@
+{% extends 'master.html' %}
+{% block title %}
+    Accueil
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <h4>Bienvenue dans l'application</h4>
+        </div>
+        <div class="row">
+            <h5><i>Que souhaitez-vous faire ?</i></h5>
+        </div>
+        <div class="row">
+            <ul>
+                <li><a href="/enseignant/creer">Créer un enseignant</a></li>
+                <li><a>Ajouter un matériel</a></li>
+                <li><a>Voir la liste des matériels</a></li>
+                <li><a href="/enseignant">Voir la liste des enseignants</a></li>
+            </ul>
+        </div>
+        
+    </div>
+{% endblock %}
