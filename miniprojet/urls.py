@@ -28,8 +28,8 @@ urlpatterns = [
     path('enseignant/<int:enseignantId>', views.detailEnseignant, name='detailEnseignant'),
     path('enseignant/creer', EnseignantCreateView.as_view(), name='createEnseignant'),
     # Salle
-    path('salle', views.listeSalles, name='listeEnseignants'),
-    path('salle/<int:salleId>', views.detailSalle, name='detailEnseignant'),
+    path('salle', views.listeSalles, name='listeSalles'),
+    path('salle/<int:salleId>', views.detailSalle, name='detailSalle'),
     # Matériel
     path('materiel', views.listeMateriels, name='listeMateriels'),
     path('materiel/<int:materielId>', views.detailMateriel, name='detailMateriel'),

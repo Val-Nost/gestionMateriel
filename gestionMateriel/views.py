@@ -59,8 +59,10 @@ def listeSalles(request):
 
 
 def detailSalle(request, salleId):
+    salle = Salle.objects.get(pk=salleId)
     context = {
-        'salle': Salle.objects.get(pk=salleId)
+        'salle': salle,
+        'materiels': salle.materiel_set.all()
     }
     return render(request, 'salle/detail.html', context)
 

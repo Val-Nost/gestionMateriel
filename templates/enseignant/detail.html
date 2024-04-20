@@ -4,6 +4,33 @@
 {% endblock %}
 {% block content %}
     <div class="container">
-        <h4>{{ enseignant }}</h4>
+        <div class="row">
+            <h4>{{ enseignant }}</h4>
+        </div>
+        <div class="row">
+            <ul>
+                <li>
+                    <ul>Matériels achetés
+                        {% for materielAchete in materielsAchetes %}
+                            <li>{{ materielAchete }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li>
+                    <ul>Matériels possédé
+                        {% for materielPossede in materielsPossedes %}
+                            <li>{{ materielPossede }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li>
+                    <ul>Garant de
+                        {% for materielResponsable in materielsResponsable %}
+                            <li>{{ materielResponsable }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div>
 {% endblock %}

@@ -9,15 +9,23 @@
             <thead>
             <tr>
                 <th>Libellé</th>
-                <th>Prénom</th>
+                <th>Budget</th>
+                <th>Acheteur</th>
+                <th>Possesseur</th>
+                <th>Responsable</th>
+                <th>Salle</th>
                 <th>Détail</th>
             </tr>
             </thead>
             <tbody>
             {% for materiel in materiels %} 
                 <tr>
-                <td>{{ materiel.nom }}</td>
-                <td>{{ materiel.prenom }}</td>
+                <td>{{ materiel.libelle }}</td>
+                <td>{{ materiel.budget }}</td>
+                <td>{{ materiel.acheteur.nom }} {{ materiel.acheteur.prenom }}</td>
+                <td>{{ materiel.possesseur.nom }} {{ materiel.possesseur.prenom }}</td>
+                <td>{{ materiel.responsable.nom }} {{ materiel.responsable.prenom }}</td>
+                <td>{{ materiel.salle.libelle }}</td>
                 <td><a href="/materiel/{{ materiel.id }}">Détail</a></td>
                 </tr>
             {% endfor %}
