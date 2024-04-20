@@ -35,6 +35,9 @@ class Salle(models.Model):
         max_length=255
     )
 
+    def __str__(self):
+        return self.libelle
+
 
 class Materiel(models.Model):
     libelle = models.CharField(
@@ -75,6 +78,9 @@ class Materiel(models.Model):
         on_delete=models.DO_NOTHING
     )
 
+    def __str__(self):
+        return self.libelle
+
 
 class Accessoire(models.Model):
     libelle = models.CharField(
@@ -92,6 +98,9 @@ class Accessoire(models.Model):
         verbose_name="Matériel de l'accessoire",
         on_delete=models.DO_NOTHING
     )
+
+    def __str__(self):
+        return self.libelle
 
 
 class Passation(models.Model):
