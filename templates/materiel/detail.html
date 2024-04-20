@@ -23,6 +23,18 @@
             <div class="row">
                 <h5>Responsable : </h5> {{ materiel.responsable }}
             </div>
+            <div class="row">
+                <h4>Accessoire(s)</h4>
+                {% if accessoires %}
+                    <ul>
+                        {% for accessoire in accessoires %}
+                            <li>{{ accessoire }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>Aucun accessoire</p>
+                {% endif %}
+            </div>
         {% else %}
             <p>Ce materiel n'existe pas</p>
         {% endif %}

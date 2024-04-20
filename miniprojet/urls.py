@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path
 
 from gestionMateriel import views
-from gestionMateriel.views import EnseignantCreateView, MaterielCreateView
+from gestionMateriel.views import EnseignantCreateView, MaterielCreateView, AccessoireCreateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -34,4 +34,7 @@ urlpatterns = [
     path('materiel', views.listeMateriels, name='listeMateriels'),
     path('materiel/<int:materielId>', views.detailMateriel, name='detailMateriel'),
     path('materiel/creer', MaterielCreateView.as_view(), name='createMateriel'),
+    # Accessoire
+    path('accessoire/creer', AccessoireCreateView.as_view(), name='createAccessoire'),
+
 ]

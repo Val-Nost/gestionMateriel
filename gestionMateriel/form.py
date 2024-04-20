@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 
-from gestionMateriel.models import Enseignant, Materiel
+from gestionMateriel.models import Enseignant, Materiel, Accessoire
 
 
 class EnseignantForm(ModelForm):
@@ -24,4 +24,15 @@ class MaterielForm(ModelForm):
             "responsable",
             "possesseur",
             "salle"
+        )
+
+
+class AccessoireForm(ModelForm):
+    class Meta:
+        model = Accessoire
+
+        fields = (
+            "libelle",
+            "etat",
+            "materiel"
         )

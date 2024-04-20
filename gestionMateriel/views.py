@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.views.generic import CreateView
 
-from gestionMateriel.form import EnseignantForm, MaterielForm
-from gestionMateriel.models import Enseignant, Salle, Materiel
+from gestionMateriel.form import EnseignantForm, MaterielForm, AccessoireForm
+from gestionMateriel.models import Enseignant, Salle, Materiel, Accessoire
 
 
 # Create your views here.
@@ -24,8 +24,15 @@ def listeEnseignants(request):
 
 
 def detailEnseignant(request, enseignantId):
+    enseignant = Enseignant.objects.get(pk=enseignantId)
+    materielsResponsable = enseignant.responsable.all()
+    materielsAchetes = enseignant.acheteur.all()
+    materielsPossedes = enseignant.possesseur.all()
     context = {
-        'enseignant': Enseignant.objects.get(pk=enseignantId)
+        'enseignant': enseignant,
+        'materielsResponsable':materielsResponsable,
+        'materielsAchetes':materielsAchetes,
+        'materielsPossedes':materielsPossedes
     }
     return render(request, 'enseignant/detail.html', context)
 
@@ -57,6 +64,7 @@ def detailSalle(request, salleId):
     }
     return render(request, 'salle/detail.html', context)
 
+
 ########################################################################################
 ########################################################################################
 #############################          Materiel             ############################
@@ -70,8 +78,11 @@ def listeMateriels(request):
 
 
 def detailMateriel(request, materielId):
+    materiel = Materiel.objects.get(pk=materielId)
+    accessoires = materiel.accessoire_set.all()
     context = {
-        'materiel': Materiel.objects.get(pk=materielId)
+        'materiel': materiel,
+        'accessoires': accessoires
     }
     return render(request, 'materiel/detail.html', context)
 
@@ -83,3 +94,18 @@ class MaterielCreateView(CreateView):
 
     def get_success_url(self):
         return reverse("detailMateriel", args=[self.object.pk])
+
+
+########################################################################################
+########################################################################################
+#############################          Accessoire             ##########################
+########################################################################################
+########################################################################################
+
+class AccessoireCreateView(CreateView):
+    model = Accessoire
+    form_class = AccessoireForm
+    template_name = 'accessoire/create.html'
+
+    def get_success_url(self):
+        return reverse("detailMateriel", args=[self.object.materiel.id])
