@@ -139,3 +139,33 @@ class Passation(models.Model):
         related_name="receveur",
         on_delete=models.DO_NOTHING
     )
+
+
+class Emprunt(models.Model):
+    enseignant = models.ForeignKey(
+        Enseignant,
+        verbose_name="Enseignant",
+        help_text="Enseignant emprunteur",
+        on_delete=models.DO_NOTHING
+    )
+    salle = models.ForeignKey(
+        Salle,
+        verbose_name="Salle",
+        help_text="Salle d'emprunt",
+        on_delete=models.DO_NOTHING,
+    )
+    date = models.DateField(
+        verbose_name="Date d'emprunt"
+    )
+
+
+class PassationAccessoire(models.Model):
+    passation = models.ForeignKey(
+        Passation,
+        on_delete=models.DO_NOTHING
+    )
+
+    accessoire = models.ForeignKey(
+        Accessoire,
+        on_delete=models.DO_NOTHING
+    )

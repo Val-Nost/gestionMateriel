@@ -15,6 +15,7 @@
                 <th>Responsable</th>
                 <th>Salle</th>
                 <th>Détail</th>
+                <th>Transfert</th>
             </tr>
             </thead>
             <tbody>
@@ -27,6 +28,7 @@
                 <td>{{ materiel.responsable.nom }} {{ materiel.responsable.prenom }}</td>
                 <td>{{ materiel.salle.libelle }}</td>
                 <td><a href="/materiel/{{ materiel.id }}">Détail</a></td>
+                <td><a href="/transfert/{{ materiel.id }}">Transférer</a></td>
                 </tr>
             {% endfor %}
             </tbody>

@@ -36,5 +36,7 @@ urlpatterns = [
     path('materiel/creer', MaterielCreateView.as_view(), name='createMateriel'),
     # Accessoire
     path('accessoire/creer', AccessoireCreateView.as_view(), name='createAccessoire'),
+    # Transfert
+    path('transfert/<int:materielId>', views.transfert, name='transfert')
 
 ]

@@ -35,6 +35,35 @@
                     <p>Aucun accessoire</p>
                 {% endif %}
             </div>
+            <div class="row">
+                <h4>Historique des transferts</h4>
+                {% if passations %}
+                    <table>
+                    <thead>
+                    <tr>
+                        <th>Donneur</th>
+                        <th>Receveur</th>
+                        <th>Date</th>
+                        <th>Objectif</th>
+                        <th>Lieu</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for passation in passations %}
+                        <tr>
+                        <td>{{ passation.donneur.nom }} {{ passation.donneur.prenom }}</td>
+                        <td>{{ passation.receveur.nom }} {{ passation.receveur.prenom }}</td>
+                        <td>{{ passation.datePassation }}</td>
+                        <td>{{ passation.objectif }}</td>
+                        <td>{{ passation.lieu.libelle }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                    <p>Aucun transfert</p>
+                {% endif %}
+            </div>
         {% else %}
             <p>Ce materiel n'existe pas</p>
         {% endif %}
